@@ -2656,7 +2656,8 @@ dl dd {
           flex-direction: column-reverse;
   background: #ffffff;
   border: solid 1px rgba(160, 160, 160, 0.3);
-  margin: 0 0 2em 0;
+  margin: 0 2em 2em 0;
+  width: 400px;
 }
 
 .mini-post .image {
@@ -2710,6 +2711,9 @@ dl dd {
 
 .mini-posts {
   margin: 0 0 2em 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 @media screen and (max-width: 1280px) {

@@ -11,28 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Controller@main')->name('home');
+Route::get('/books', 'Controller@books')->name('books');
 
+Route::get('/contacts', 'Controller@contacts')->name('contacts');
+Route::get('/articles', 'Controller@articles')->name('articles');
+Route::get('/interviews', 'Controller@interviews')->name('interviews');
+Route::get('/reviews', 'Controller@reviews')->name('reviews');
 
-Route::get('/contacts', function() {
-    return '/contacts';
-})->name('contacts');
-
-Route::get('/articles', function() {
-    return '/articles';
-})->name('articles');
-
-Route::get('/books', function() {
-    return '/books';
-})->name('books');
-
-Route::get('/interviews', function() {
-    return '/interviews';
-})->name('interviews');
-
-Route::get('/reviews', function() {
-    return '/reviews';
-})->name('reviews');
 

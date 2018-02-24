@@ -11,7 +11,8 @@
 		@include vendor('flex-direction', 'column-reverse');
 		background: _palette(bg);
 		border: solid 1px _palette(border);
-		margin: 0 0 _size(element-margin) 0;
+		margin: 0 _size(element-margin) _size(element-margin) 0;
+		width: 400px;
 
 		.image {
 			overflow: hidden;
