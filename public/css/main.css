@@ -2641,6 +2641,47 @@ dl dd {
   margin-left: 2em;
 }
 
+/*  BOOOKS  */
+
+.book {
+  background: #ffffff;
+  border: solid 1px rgba(160, 160, 160, 0.3);
+  margin: 0 2em 2em 0;
+  width: 420px;
+  padding: 1.25em 1.25em 0.1em 1.25em;
+
+}
+.book section {
+  display: flex;
+  min-height: 230px;
+  margin-bottom: 1em;
+}
+.book a img {
+  /*display: inline-block;*/
+  height: 230px;
+}
+.book p {
+  /*display: inline-block;*/
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+.book header {
+  min-height: 4em;
+}
+.book header h3 {
+  font-size: 0.7em;
+}
+
+.book header .published {
+  display: block;
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 0.6em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  margin: -0.625em 0 1.7em 0;
+  text-transform: uppercase;
+}
+
 /* Mini Post */
 
 .mini-post {

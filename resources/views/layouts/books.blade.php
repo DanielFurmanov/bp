@@ -4,42 +4,30 @@
 @section('content')
 	<div class="mini-posts">
 
-		<article class="mini-post">
-			<header>
-				<h3><a href="#">Vitae sed condimentum</a></h3>
-				<time class="published" datetime="2015-10-20">October 20, 2015</time>
-				<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-			</header>
-			<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-		</article>
+		@foreach($books as $book)
+		@php
+			/** @var \App\Models\Book $book */
+		@endphp
 
-		<article class="mini-post">
-			<header>
-				<h3><a href="#">Rutrum neque accumsan</a></h3>
-				<time class="published" datetime="2015-10-19">October 19, 2015</time>
-				<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-			</header>
-			<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-		</article>
+			<article class="book">
+				<header>
+					<h3><a href="#">{{ $book->getTitle() }}</a></h3>
+					<span class="published">Издательство "{{ $book->publisher->getName() }}", {{ $book->getYear() }} г.</span>
+				</header>
 
-		<article class="mini-post">
-			<header>
-				<h3><a href="#">Odio congue mattis</a></h3>
-				<time class="published" datetime="2015-10-18">October 18, 2015</time>
-				<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-			</header>
-			<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-		</article>
+				<section>
+					<a href="#" class="image"><img src="{{ $book->getImgFilePath() }}" alt="обложка книги {{ $book->getTitle() }}" /></a>
+					<p>
+						{{ $book->getAnnotation() }}
+					</p>
+				</section>
 
-		<article class="mini-post">
-			<header>
-				<h3><a href="#">Enim nisl veroeros</a></h3>
-				<time class="published" datetime="2015-10-17">October 17, 2015</time>
-				<a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
-			</header>
-			<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-		</article>
 
+				<ul class="actions" style="text-align: center">
+					<li><a href="#" class="button big">Читать онлайн</a></li>
+				</ul>
+			</article>
+		@endforeach
 	</div>
 
 @endsection
