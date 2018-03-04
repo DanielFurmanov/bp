@@ -1,31 +1,27 @@
 <?php
 
-use App\Models\Publisher;
+use App\Models\Article;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Models\Book;
 
-class CreateBooks extends Migration {
+class CreateArticles extends Migration {
 
 	protected $tableName;
 
 	public function __construct() {
-		$this->tableName = Book::getTableName();
+		$this->tableName = Article::getTableName();
 	}
 
 	public function up() {
 		Schema::create($this->tableName, function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('title')->unique();
-			$table->integer('year');
-			$table->integer('publisher_id');
-			$table->string('annotation');
-			$table->string('cover')->unique();
+			$table->text('annotation');
+			$table->longText('content');
 			$table->string('slug')->unique();
 
-			$table->foreign('publisher_id')->references('id')->on(Publisher::getTableName())
-				->onDelete('restrict')->onUpdate('restrict');
+			$table->timestamps();
 		});
 	}
 

@@ -12,12 +12,17 @@
 */
 
 Route::get('/', 'Controller@main')->name('home');
+
 Route::get('/books', 'Controller@books')->name('books');
-Route::get('/book/{bookSlug}', 'Controller@showBook')->name('books.view');
+Route::get('/books/{bookSlug}', 'Controller@showBook')->name('books.view');
 
 Route::get('/contacts', 'Controller@contacts')->name('contacts');
+
 Route::get('/articles', 'Controller@articles')->name('articles');
+Route::get('/articles/{slug}', 'Controller@showArticle')->name('articles.view');
+
 Route::get('/interviews', 'Controller@interviews')->name('interviews');
+
 Route::get('/reviews', 'Controller@reviews')->name('reviews');
 
 
