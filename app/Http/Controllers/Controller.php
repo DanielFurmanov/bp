@@ -27,10 +27,12 @@ class Controller extends BaseController
     }
 
 	public function showBook($bookSlug) {
-		$book = Book::firstOrFail(['slug' => $bookSlug]);
+		$book = Book::query()
+			->where('slug', $bookSlug)
+			->firstOrFail();
 
 		return view('layouts.book', [
-			'tile' => $book->getTitle(),
+			'title' => $book->getTitle(),
 			'book' => $book,
 		]);
     }

@@ -13,7 +13,7 @@
 
 Route::get('/', 'Controller@main')->name('home');
 Route::get('/books', 'Controller@books')->name('books');
-Route::get('/book/{bookSlug}', 'Controller@showBook')->name('books.show');
+Route::get('/book/{bookSlug}', 'Controller@showBook')->name('books.view');
 
 Route::get('/contacts', 'Controller@contacts')->name('contacts');
 Route::get('/articles', 'Controller@articles')->name('articles');

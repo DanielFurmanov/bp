@@ -24,7 +24,7 @@
 
 
 				<ul class="actions" style="text-align: center">
-					<li><a href="#" class="button big">Читать онлайн</a></li>
+					<li><a href="{{ route('books.view', [$book->getSlug()]) }}" class="button big">Читать онлайн</a></li>
 				</ul>
 			</article>
 		@endforeach
