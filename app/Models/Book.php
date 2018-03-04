@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $publisher_id
  * @property Publisher $publisher
  * @property string $annotation
- * @property string $img
- * @property string $content_view_name
+ * @property string $cover
+ * @property string $slug
  */
 class Book extends BaseModel {
 	const IMG_FOLDER = '/img/';
@@ -31,12 +31,16 @@ class Book extends BaseModel {
 		return $this->year;
 	}
 
-	public function getImg(): string {
-		return $this->img;
+	public function getCover(): string {
+		return $this->cover;
 	}
 
-	public function getImgFilePath(): string {
-		return static::IMG_FOLDER.$this->getImg();
+	public function getSlug(): string {
+		return $this->slug;
+	}
+
+	public function getCoverFilePath(): string {
+		return static::IMG_FOLDER.$this->getCover();
 	}
 
 	public function getAnnotation(): string {
@@ -66,12 +70,12 @@ class Book extends BaseModel {
 		$this->annotation = $annotation;
 	}
 
-	public function setImg(string $img) {
-		$this->img = $img;
+	public function setCover(string $imgName) {
+		$this->cover = $imgName;
 	}
 
-	public function setContentViewName(string $content_view_name) {
-		$this->content_view_name = $content_view_name;
+	public function setSlug(string $slug) {
+		$this->slug = $slug;
 	}
 
 }

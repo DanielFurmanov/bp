@@ -26,6 +26,15 @@ class Controller extends BaseController
 		]);
     }
 
+	public function showBook($bookSlug) {
+		$book = Book::firstOrFail(['slug' => $bookSlug]);
+
+		return view('layouts.book', [
+			'tile' => $book->getTitle(),
+			'book' => $book,
+		]);
+    }
+
 	public function interviews() {
 		return view('layouts.interviews', [
 			'title' => 'interviews11',

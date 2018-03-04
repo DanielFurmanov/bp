@@ -21,12 +21,11 @@ class CreateBooks extends Migration {
 			$table->integer('year');
 			$table->integer('publisher_id');
 			$table->string('annotation');
-			$table->string('img')->unique();
-			$table->string('content_view_name')->unique();
+			$table->string('cover')->unique();
+			$table->string('slug')->unique();
 
 			$table->foreign('publisher_id')->references('id')->on(Publisher::getTableName())
 				->onDelete('restrict')->onUpdate('restrict');
-
 		});
 	}
 

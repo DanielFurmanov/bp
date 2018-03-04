@@ -16,7 +16,7 @@
 				</header>
 
 				<section>
-					<a href="#" class="image"><img src="{{ $book->getImgFilePath() }}" alt="обложка книги {{ $book->getTitle() }}" /></a>
+					<a href="#" class="image"><img src="{{ $book->getCoverFilePath() }}" alt="обложка книги {{ $book->getTitle() }}" /></a>
 					<p>
 						{{ $book->getAnnotation() }}
 					</p>
