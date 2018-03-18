@@ -1650,11 +1650,11 @@ a:before {
 
 a:hover {
   border-bottom-color: transparent;
-  color: #2ebaae !important;
+  color: #2ebaae;
 }
 
 a:hover:before {
-  color: #2ebaae !important;
+  color: #2ebaae;
 }
 
 strong,
@@ -3228,6 +3228,18 @@ body {
   font-size: 0.7em;
 }
 
+#header h1 a:hover {
+  color: #FFAE6F;
+}
+
+#header h1 a span {
+  color: #FFAE6F;
+}
+
+#header h1 a:hover span {
+  color: rgb(60, 59, 59);
+}
+
 #header .links {
   -moz-flex: 1;
   -ms-flex: 1;
@@ -3256,7 +3268,7 @@ body {
 }
 
 #header .links ul li:hover {
-  color: #aaaaaa;
+  color: #FFAE6F;
 }
 
 #header .links ul li a {

@@ -1,5 +1,5 @@
 <header id="header">
-	<h1><a href="{{ route('home') }}">Блог <span style="color:#FFAE6F">ПРО</span>ЗРЕНИЕ</a></h1>
+	<h1><a href="{{ route('home') }}">Блог <span>ПРО</span>ЗРЕНИЕ</a></h1>
 	<nav class="links">
 		<ul>
 			<li><a href="{{ route('articles') }}">Статьи</a></li>
