@@ -3268,7 +3268,7 @@ body {
 }
 
 #header .links ul li:hover {
-  color: #FFAE6F;
+  color: rgb(60, 59, 59);
 }
 
 #header .links ul li a {
