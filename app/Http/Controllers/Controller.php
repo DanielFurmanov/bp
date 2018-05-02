@@ -17,6 +17,7 @@ class Controller extends BaseController
 	public function main() {
 		return view('layouts.home', [
 			'title' => 'I AM A TITLE',
+			'fullpage' => true,
 		]);
     }
 
@@ -73,6 +74,63 @@ class Controller extends BaseController
 		return view('layouts.article', [
 			'title' => $article->getTitle(),
 			'article' => $article,
+		]);
+    }
+
+	public function variant1() {
+		return view('layouts.home', [
+			'title' => 'variant1',
+			'fontfamily' => 'Alegreya',
+		]);
+    }
+
+	public function variant2() {
+		return view('layouts.home', [
+			'title' => 'variant2',
+			'fontfamily' => "'Philosopher', sans-serif",
+			'jumbo' => "asfsd",
+		]);
+    }
+
+	public function variant3() {
+		return view('layouts.home', [
+			'title' => 'variant3',
+			'fontfamily' => 'Vollkorn',
+		]);
+    }
+
+	public function variant4() {
+		return view('layouts.home', [
+			'title' => 'variant4',
+			'fontfamily' => 'Playfair Display SC',
+		]);
+    }
+
+	public function variant5() {
+		return view('layouts.home', [
+			'title' => 'Ubuntu Condensed',
+			'fontfamily' => 'Ubuntu Condensed',
+		]);
+    }
+
+	public function variant6() {
+		return view('layouts.home', [
+			'title' => 'Vollkorn',
+			'fontfamily' => 'Vollkorn',
+		]);
+    }
+
+	public function variant7() {
+		return view('layouts.home', [
+			'title' => 'Oswald',
+			'fontfamily' => 'Oswald',
+		]);
+    }
+
+	public function variant8() {
+		return view('layouts.home', [
+			'title' => 'Ubuntu',
+			'fontfamily' => 'Ubuntu',
 		]);
     }
 }
