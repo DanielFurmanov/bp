@@ -45,6 +45,7 @@ class CreateCities extends Migration
 		'Пенза',
 		'Липецк',
 		'Киров',
+		'Кирово-Чепецк',
 	];
 
 	private $tableName;

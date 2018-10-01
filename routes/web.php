@@ -23,7 +23,7 @@ Route::get('/articles/{slug}', 'Controller@showArticle')->name('articles.view');
 
 Route::get('/interviews', 'Controller@interviews')->name('interviews');
 
-Route::get('/reviews', 'Controller@reviews')->name('reviews');
+//Route::get('/reviews', 'Controller@reviews')->name('reviews');
 
 for ($i=1; $i <= 8; $i++) {
 	Route::get('/variant'.$i, 'Controller@variant'.$i);
@@ -49,6 +49,7 @@ Route::post('/password/reset', 'Auth\ForgotPasswordController@reset');
 Route::get('/password/reset/{token}', 'Auth\ForgotPasswordController@showResetForm')->name('password.reset');
 
 Route::resource('meetings', 'MeetingController')->except('index', 'show');
+Route::resource('reviews', 'ReviewController');
 
 // this one is not needed
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

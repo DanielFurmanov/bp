@@ -5,7 +5,7 @@
 			<li><a href="{{ route('articles') }}">Статьи</a></li>
 			<li><a href="{{ route('books') }}">Книги</a></li>
 			<li><a href="{{ route('interviews') }}">Интервью</a></li>
-			<li><a href="{{ route('reviews') }}">Отзывы</a></li>
+			<li><a href="{{ route('reviews.index') }}">Отзывы</a></li>
 			<li><a href="{{ route('contacts') }}">Контакты</a></li>
 		</ul>
 	</nav>

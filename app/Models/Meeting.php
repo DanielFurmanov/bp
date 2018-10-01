@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Carbon\Carbon;
 
-/** @property int id */
-/** @property string description */
-/** @property City city */
-/** @property Carbon date_start */
-/** @property Carbon date_end */
-/** @property Carbon time_start */
-/** @property Carbon time_end */
-/** @property bool active */
-/** @property string address */
+/** @property int id
+ * @property string description
+ * @property City city
+ * @property Carbon date_start
+ * @property Carbon date_end
+ * @property Carbon time_start
+ * @property Carbon time_end
+ * @property bool active
+ * @property string address
+ */
 class Meeting extends BaseModel {
 	/**
 	 * @return string

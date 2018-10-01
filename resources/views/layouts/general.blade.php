@@ -4,20 +4,14 @@
     <title>{{ $title }}</title>
     @include('common.head_assets')
 
-    <link href="https://fonts.googleapis.com/css?family=Alegreya|Oswald|PT+Sans+Caption|Philosopher|Playfair+Display+SC|Ubuntu|Ubuntu+Condensed|Vollkorn&amp;subset=cyrillic" rel="stylesheet">
+    {{--<link href="https://fonts.googleapis.com/css?family=Alegreya|Oswald|PT+Sans+Caption|Philosopher|Playfair+Display+SC|Ubuntu|Ubuntu+Condensed|Vollkorn&amp;subset=cyrillic" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&amp;subset=cyrillic" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
     <style>
-        /*font-family: 'Alegreya', serif;*/
-        /*font-family: 'PT Sans Caption', sans-serif;*/
-        /*font-family: 'Philosopher', sans-serif;*/
-        /*font-family: 'Playfair Display SC', serif;*/
-        /*font-family: 'Ubuntu Condensed', sans-serif;*/
-        /*font-family: 'Vollkorn', serif;*/
-        /*font-family: 'Oswald', sans-serif;*/
-        /*font-family: 'Ubuntu', sans-serif;*/
         * {
-            font-family: {!! $fontfamily ?? "Ubuntu Condensed" !!}, sans-serif !important;
+            font-family: Ubuntu, sans-serif !important;
         }
 
         @if(isset($fullpage))
@@ -35,19 +29,16 @@
 <style>
     .jumbotron {
         background: url("/img/background.jpeg");
+        background-position: top;
+        /*background-clip: content-box;*/
+        /*background-repeat: no-repeat;*/
+        background-size: auto;
         min-height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
     }
 
-    .middle-stuff {
-        background: rgba(255, 255, 255, 0.5);
-        padding: 1em;
-        min-height: 200px;
-        width: 600px;
-    }
 </style>
 
 <section class="jumbotron">

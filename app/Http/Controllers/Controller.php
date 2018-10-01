@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Book;
+use App\Models\Review;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -46,12 +47,6 @@ class Controller extends BaseController
 		]);
     }
 
-	public function reviews() {
-		return view('layouts.reviews', [
-			'title' => 'reviews11',
-		]);
-    }
-
 	public function contacts() {
 		return view('layouts.contacts', [
 			'title' => 'CONTACTS',
@@ -91,46 +86,46 @@ class Controller extends BaseController
 			'jumbo' => "asfsd",
 		]);
     }
-
-	public function variant3() {
-		return view('layouts.home', [
-			'title' => 'variant3',
-			'fontfamily' => 'Vollkorn',
-		]);
-    }
-
-	public function variant4() {
-		return view('layouts.home', [
-			'title' => 'variant4',
-			'fontfamily' => 'Playfair Display SC',
-		]);
-    }
-
-	public function variant5() {
-		return view('layouts.home', [
-			'title' => 'Ubuntu Condensed',
-			'fontfamily' => 'Ubuntu Condensed',
-		]);
-    }
-
-	public function variant6() {
-		return view('layouts.home', [
-			'title' => 'Vollkorn',
-			'fontfamily' => 'Vollkorn',
-		]);
-    }
-
-	public function variant7() {
-		return view('layouts.home', [
-			'title' => 'Oswald',
-			'fontfamily' => 'Oswald',
-		]);
-    }
-
-	public function variant8() {
-		return view('layouts.home', [
-			'title' => 'Ubuntu',
-			'fontfamily' => 'Ubuntu',
-		]);
-    }
+//
+//	public function variant3() {
+//		return view('layouts.home', [
+//			'title' => 'variant3',
+//			'fontfamily' => 'Vollkorn',
+//		]);
+//    }
+//
+//	public function variant4() {
+//		return view('layouts.home', [
+//			'title' => 'variant4',
+//			'fontfamily' => 'Playfair Display SC',
+//		]);
+//    }
+//
+//	public function variant5() {
+//		return view('layouts.home', [
+//			'title' => 'Ubuntu Condensed',
+//			'fontfamily' => 'Ubuntu Condensed',
+//		]);
+//    }
+//
+//	public function variant6() {
+//		return view('layouts.home', [
+//			'title' => 'Vollkorn',
+//			'fontfamily' => 'Vollkorn',
+//		]);
+//    }
+//
+//	public function variant7() {
+//		return view('layouts.home', [
+//			'title' => 'Oswald',
+//			'fontfamily' => 'Oswald',
+//		]);
+//    }
+//
+//	public function variant8() {
+//		return view('layouts.home', [
+//			'title' => 'Ubuntu',
+//			'fontfamily' => 'Ubuntu',
+//		]);
+//    }
 }
