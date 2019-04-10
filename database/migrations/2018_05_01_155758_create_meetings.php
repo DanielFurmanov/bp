@@ -26,10 +26,7 @@ class CreateMeetings extends Migration
 		Schema::create($this->tableName, function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('address');
-			// TODO | RERUN THE MIGRATION AFTER FIXING THE
-			// todo | "type "geography" does not exist at character 107" EXCEPTION
-//			$table->point('coordinates')->nullable();
-			$table->string('description');
+			$table->string('description')->nullable();
 			$table->integer('city_id');
 			$table->date('date_start');
 			$table->date('date_end')->nullable();

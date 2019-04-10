@@ -1,40 +1,19 @@
-<header id="header">
-	<h1><a href="{{ route('home') }}">Блог <span>ПРО</span>ЗРЕНИЕ</a></h1>
-	<nav class="links">
-		<ul>
-			{{--<li><a href="{{ route('articles') }}">Статьи</a></li>--}}
-			{{--<li><a href="{{ route('books') }}">Книги</a></li>--}}
-			{{--<li><a href="{{ route('interviews') }}">Интервью</a></li>--}}
-			{{--<li><a href="{{ route('reviews') }}">Отзывы</a></li>--}}
-			{{--<li><a href="{{ route('contacts') }}">Контакты</a></li>--}}
-		</ul>
-	</nav>
-	{{--<nav class="main">--}}
-		<!--<ul>-->
-		<!--<li class="search">-->
-		<!--<a class="fa-search" href="#search">Search</a>-->
-		<!--<form id="search" method="get" action="#">-->
-		<!--<input type="text" name="query" placeholder="Search" />-->
-		<!--</form>-->
-		<!--</li>-->
-		<!--<li class="menu">-->
-		<!--<a class="fa-bars" href="#menu">Menu</a>-->
-		<!--</li>-->
-		<!--</ul>-->
-	{{--</nav>--}}
+<header id="header" class="container-fluid" style="min-height: 50px">
+	<div class="row align-items-center">
+		<div class="col">
+{{--			<a href="{{ route('admin') }}"><h1>КОНТРОЛЬНАЯ ПАНЕЛЬ БЛОГА</h1></a>--}}
+			<h1><a href="{{ route('admin') }}">Блог <span>ПРО</span>ЗРЕНИЕ</a></h1>
+		</div>
 
-	<ul class="dropdown-menu">
-		<li>
-			<a href="<?php echo e(route('logout')); ?>"
-			   onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();">
-				Выйти
-			</a>
+		<div class="col-1">
 
-			<form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+			<form id="logout-form" action="{{ route('logout') }}" method="POST">
 				{{ csrf_field() }}
 
+				<button>
+					Выйти
+				</button>
 			</form>
-		</li>
-	</ul>
+		</div>
+	</div>
 </header>

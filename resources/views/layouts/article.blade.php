@@ -16,7 +16,7 @@
 		</h1>
 
 		<div>
-			{{ $article->getContent() }}
+			{!! $article->getContent() !!}
 		</div>
 	</div>
 @endsection

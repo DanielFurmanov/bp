@@ -21,7 +21,7 @@ Route::get('/contacts', 'Controller@contacts')->name('contacts');
 Route::get('/articles', 'Controller@articles')->name('articles');
 Route::get('/articles/{slug}', 'Controller@showArticle')->name('articles.view');
 
-Route::get('/interviews', 'Controller@interviews')->name('interviews');
+//Route::get('/interviews', 'Controller@interviews')->name('interviews');
 
 //Route::get('/reviews', 'Controller@reviews')->name('reviews');
 
@@ -36,8 +36,6 @@ for ($i=1; $i <= 8; $i++) {
 //Route::get('/variant5', 'Controller@reviews')->name('reviews');
 //Route::get('/variant6', 'Controller@reviews')->name('reviews');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
-
 Route::get('/login', 'Auth\LoginController@showLoginForm' )->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
@@ -48,10 +46,19 @@ Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm
 Route::post('/password/reset', 'Auth\ForgotPasswordController@reset');
 Route::get('/password/reset/{token}', 'Auth\ForgotPasswordController@showResetForm')->name('password.reset');
 
-Route::resource('meetings', 'MeetingController')->except('index', 'show');
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', 'AdminController@index')->name('admin');
+
+    Route::resource('meetings', 'MeetingController')->except('show');
+    Route::resource('articles', 'ArticleController'); // todo except?
+});
+
 Route::resource('reviews', 'ReviewController');
+Route::resource('interviews', 'InterviewController');
 
 // this one is not needed
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 //Route::post('register', 'Auth\RegisterController@register');
 
+Route::any('/ckfinder/examples/{example?}', '\CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
+    ->name('ckfinder_examples');
