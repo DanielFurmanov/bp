@@ -3,19 +3,21 @@
 @section('content')
 	<div class="mini-posts">
 		@foreach($interviews as $interview)
-			<article class="book">
+			<article class="entry">
 				<header>
-					<h3><a href="#">{{ $interview->getTitle() }}</a></h3>
-					{{--<span class="published">{{ $interview->getCity() ? $interview->getCity()->getName().',' : '' }} {{ $interview->getDate()->format('d.m.y') }}</span>--}}
+					<h2><a href="#">{{ $interview->getTitle() }}</a></h2>
 				</header>
 
 				<section>
-					{{ $interview->getDescription() }}
+					<div>
+						{{ $interview->getDescription() }}...
+					</div>
+
+					<ul class="actions" style="text-align: center">
+						<li><a href="{{ route('interviews.show', [$interview->getSlug()]) }}" class="button big">Читать</a></li>
+					</ul>
 				</section>
 
-				<ul class="actions" style="text-align: center">
-					<li><a href="{{ route('interviews.show', [$interview->getSlug()]) }}" class="button big">Подробнее</a></li>
-				</ul>
 			</article>
 		@endforeach
 	</div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMeeting;
 use App\Models\City;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
@@ -29,7 +30,10 @@ class MeetingController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.admin.meetings.edit', [
+            'meeting' => new Meeting(),
+            'cities'  => City::all(),
+        ]);
     }
 
     /**
@@ -38,7 +42,7 @@ class MeetingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMeeting $request)
     {
         $meeting = new Meeting();
 

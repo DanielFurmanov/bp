@@ -144,6 +144,10 @@ body {
   -webkit-text-size-adjust: none;
 }
 
+img {
+  max-width: 100% !important;
+}
+
 /* Box Model */
 
 *,
@@ -1650,11 +1654,11 @@ a:before {
 
 a:hover {
   border-bottom-color: transparent;
-  color: #2ebaae !important;
+  color: #2ebaae;
 }
 
 a:hover:before {
-  color: #2ebaae !important;
+  color: #2ebaae;
 }
 
 strong,
@@ -1900,6 +1904,46 @@ button,
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+
+/*.turquoise-flat-button {*/
+	/*position: relative;*/
+	/*vertical-align: top;*/
+	/*width: 100%;*/
+	/*height: 60px;*/
+	/*padding: 0;*/
+	/*font-size: 22px;*/
+	/*color: white;*/
+	/*text-align: center;*/
+	/*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);*/
+	/*background: #1abc9c;*/
+	/*border: 0;*/
+	/*border-bottom: 2px solid #12ab8d;*/
+	/*cursor: pointer;*/
+	/*-webkit-box-shadow: inset 0 -2px #12ab8d;*/
+	/*box-shadow: inset 0 -2px #12ab8d;*/
+/*}*/
+/*.turquoise-flat-button:active {*/
+	/*top: 1px;*/
+	/*outline: none;*/
+	/*-webkit-box-shadow: none;*/
+	/*box-shadow: none;*/
+/*}*/
+
+.button.turquoise-flat-button {
+	/*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);*/
+	background: #2ebaae;
+	border: 0;
+	border-bottom: 2px solid #12ab8d;
+	color: #ffffff !important;
+}
+
+.button.turquoise-flat-button:hover {
+	/*text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);*/
+	background: none;
+	border: 1px solid #12ab8d;
+
 }
 
 input[type="submit"]:hover,
@@ -2641,6 +2685,108 @@ dl dd {
   margin-left: 2em;
 }
 
+/*  BOOOKS  */
+
+.book {
+  display: flex;
+  background: #ffffff;
+  border: solid 1px rgba(160, 160, 160, 0.3);
+  margin: 0 2em 2em 0;
+  /*width: 420px; todo this was used for two books in one row*/
+  width: 100%;
+  padding: 1.25em;
+}
+
+.book div {
+  margin-left: 1em;
+}
+
+.book section {
+  display: flex;
+  /*min-height: 230px;*/
+  margin-bottom: 1em;
+}
+
+.book section div {
+  padding: .5em;
+}
+.book a img {
+  /*display: inline-block;*/
+  /*height: 230px;*/
+  max-width: 320px;
+}
+.book p {
+  /*display: inline-block;*/
+  /*margin-left: 1em;*/
+  font-size: 0.9em;
+}
+.book header {
+  /*min-height: 4em;*/
+}
+.book header h3 {
+  font-size: 0.7em;
+}
+
+.book header .published {
+  display: block;
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 0.6em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  margin: -0.625em 0 1.7em 0;
+  text-transform: uppercase;
+}
+
+/*  todo rename this to properly point that
+      this is common sections from articles/intervies etc (maybe just extend in SASS)  */
+
+.entry {
+  background: #ffffff;
+  border: solid 1px rgba(160, 160, 160, 0.3);
+  margin: 0 2em 2em 0;
+  /*width: 420px; todo this was used for two books in one row*/
+  width: 100%;
+  padding: 1.25em 1.25em 0.1em 1.25em;
+
+}
+.entry section {
+  display: flex;
+  /*min-height: 230px;*/
+  margin-bottom: 1em;
+}
+
+.entry section div {
+  padding: .5em;
+  width: 100%;
+}
+.entry a img {
+  /*display: inline-block;*/
+  max-height: 230px;
+  min-width: 100px;
+}
+.entry p {
+  /*display: inline-block;*/
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+.entry header {
+  /*min-height: 4em;*/
+}
+.entry header h3 {
+  font-size: 0.7em;
+}
+
+.entry header .published {
+  display: block;
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 0.6em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  margin: -0.625em 0 1.7em 0;
+  text-transform: uppercase;
+}
+
+
 /* Mini Post */
 
 .mini-post {
@@ -2711,29 +2857,32 @@ dl dd {
 
 .mini-posts {
   margin: 0 0 2em 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-@media screen and (max-width: 1280px) {
-  .mini-posts {
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    width: calc(100% + 2em);
-  }
+/*@media screen and (max-width: 1280px) {*/
+/*  .mini-posts {*/
+/*    display: -moz-flex;*/
+/*    display: -ms-flex;*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    -ms-flex-wrap: wrap;*/
+/*    flex-wrap: wrap;*/
+/*    width: calc(100% + 2em);*/
+/*  }*/
 
-  .mini-posts > * {
-    margin: 2em 2em 0 0;
-    width: calc(50% - 2em);
-  }
+/*  .mini-posts > * {*/
+/*    margin: 2em 2em 0 0;*/
+/*    width: calc(50% - 2em);*/
+/*  }*/
 
-  .mini-posts > :nth-child(-n + 2) {
-    margin-top: 0;
-  }
-}
+/*  .mini-posts > :nth-child(-n + 2) {*/
+/*    margin-top: 0;*/
+/*  }*/
+/*}*/
 
 @media screen and (max-width: 480px) {
   .mini-posts {
@@ -2781,7 +2930,9 @@ dl dd {
 
 .post > header .title h2 {
   font-weight: 900;
-  font-size: 1.5em;
+  /*font-size: 1.5em;*/
+  font-size: 1.8em;
+  color: #2ebaae;
 }
 
 .post > header .title > :last-child {
@@ -3181,7 +3332,19 @@ body {
 }
 
 #header h1 a {
-  font-size: 0.7em;
+  font-size: 1.1em;
+}
+
+#header h1 a:hover {
+  color: #FFAE6F;
+}
+
+#header h1 a span {
+  color: #FFAE6F;
+}
+
+#header h1 a:hover span {
+  color: rgb(60, 59, 59);
 }
 
 #header .links {
@@ -3198,8 +3361,9 @@ body {
 }
 
 #header .links ul li {
-  border-left: solid 1px rgba(160, 160, 160, 0.3);
-  line-height: 1;
+  /*border-left: solid 1px rgba(160, 160, 160, 0.3);*/
+  border-left: solid 1px rgba(242, 250, 253, 0.33);
+  line-height: 2;
   margin-left: 1em;
   padding-left: 1em;
   color: #fff;
@@ -3211,17 +3375,23 @@ body {
   padding-left: 0;
 }
 
-#header .links ul li:hover {
-  color: #aaaaaa;
+#header .links ul li a {
+  /*color: rgb(60, 59, 59);*/
+  color: #fff;
+}
+
+#header .links ul li a:hover {
+  color: #fff;
 }
 
 #header .links ul li a {
   border-bottom: 0;
   font-family: "Raleway", Helvetica, sans-serif;
-  font-size: 0.7em;
-  font-weight: 400;
-  letter-spacing: 0.25em;
+  font-size: 0.9em;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: rgb(60, 59, 59);
 }
 
 #header .main {
@@ -3604,3 +3774,19 @@ body.is-menu-visible #menu {
   }
 }
 
+.middle-stuff {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  min-height: 200px;
+  width: 600px;
+  text-align: center;
+}
+
+.middle-stuff h1 {
+  font-size: 1.4em;
+  color: #2ebaae;
+}
+
+.middle-stuff p {
+  color: #fff;
+}

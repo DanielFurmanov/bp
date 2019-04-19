@@ -2,5 +2,5 @@
 
 
 @section('content')
-CONTACSSSSS
+Сюда надо добавить контакты (телефон, ВК, почту)
 @endsection

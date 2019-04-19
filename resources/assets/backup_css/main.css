@@ -144,6 +144,10 @@ body {
   -webkit-text-size-adjust: none;
 }
 
+img {
+  max-width: 100% !important;
+}
+
 /* Box Model */
 
 *,
@@ -2684,29 +2688,40 @@ dl dd {
 /*  BOOOKS  */
 
 .book {
+  display: flex;
   background: #ffffff;
   border: solid 1px rgba(160, 160, 160, 0.3);
   margin: 0 2em 2em 0;
-  width: 420px;
-  padding: 1.25em 1.25em 0.1em 1.25em;
-
+  /*width: 420px; todo this was used for two books in one row*/
+  width: 100%;
+  padding: 1.25em;
 }
+
+.book div {
+  margin-left: 1em;
+}
+
 .book section {
   display: flex;
-  min-height: 230px;
+  /*min-height: 230px;*/
   margin-bottom: 1em;
+}
+
+.book section div {
+  padding: .5em;
 }
 .book a img {
   /*display: inline-block;*/
-  height: 230px;
+  /*height: 230px;*/
+  max-width: 320px;
 }
 .book p {
   /*display: inline-block;*/
-  margin-left: 1em;
+  /*margin-left: 1em;*/
   font-size: 0.9em;
 }
 .book header {
-  min-height: 4em;
+  /*min-height: 4em;*/
 }
 .book header h3 {
   font-size: 0.7em;
@@ -2721,6 +2736,56 @@ dl dd {
   margin: -0.625em 0 1.7em 0;
   text-transform: uppercase;
 }
+
+/*  todo rename this to properly point that
+      this is common sections from articles/intervies etc (maybe just extend in SASS)  */
+
+.entry {
+  background: #ffffff;
+  border: solid 1px rgba(160, 160, 160, 0.3);
+  margin: 0 2em 2em 0;
+  /*width: 420px; todo this was used for two books in one row*/
+  width: 100%;
+  padding: 1.25em 1.25em 0.1em 1.25em;
+
+}
+.entry section {
+  display: flex;
+  /*min-height: 230px;*/
+  margin-bottom: 1em;
+}
+
+.entry section div {
+  padding: .5em;
+  width: 100%;
+}
+.entry a img {
+  /*display: inline-block;*/
+  max-height: 230px;
+  min-width: 100px;
+}
+.entry p {
+  /*display: inline-block;*/
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+.entry header {
+  /*min-height: 4em;*/
+}
+.entry header h3 {
+  font-size: 0.7em;
+}
+
+.entry header .published {
+  display: block;
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 0.6em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  margin: -0.625em 0 1.7em 0;
+  text-transform: uppercase;
+}
+
 
 /* Mini Post */
 
@@ -2797,27 +2862,27 @@ dl dd {
   flex-direction: row;
 }
 
-@media screen and (max-width: 1280px) {
-  .mini-posts {
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    width: calc(100% + 2em);
-  }
+/*@media screen and (max-width: 1280px) {*/
+/*  .mini-posts {*/
+/*    display: -moz-flex;*/
+/*    display: -ms-flex;*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    -ms-flex-wrap: wrap;*/
+/*    flex-wrap: wrap;*/
+/*    width: calc(100% + 2em);*/
+/*  }*/
 
-  .mini-posts > * {
-    margin: 2em 2em 0 0;
-    width: calc(50% - 2em);
-  }
+/*  .mini-posts > * {*/
+/*    margin: 2em 2em 0 0;*/
+/*    width: calc(50% - 2em);*/
+/*  }*/
 
-  .mini-posts > :nth-child(-n + 2) {
-    margin-top: 0;
-  }
-}
+/*  .mini-posts > :nth-child(-n + 2) {*/
+/*    margin-top: 0;*/
+/*  }*/
+/*}*/
 
 @media screen and (max-width: 480px) {
   .mini-posts {

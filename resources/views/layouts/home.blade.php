@@ -1,52 +1,8 @@
 @extends('layouts.general')
 
-
 @section('content')
-	<script>
-		$(document).ready(function () {
-				console.log('changing background image');
-				jQuery('#back').change(function () {
-					$('.jumbotron').css('background', 'url('+this.value+')')
-				});
 
-				$('#backPosition').on('change', function () {
-					$('.jumbotron').css('background-position', this.value)
-				})
-			}
-		);
-
-	</script>
-	<?php $a = 'img/backs/'?>
-	<form action="">
-		<select name="back" id="back">
-			<option value="{{ asset($a.'clouds-daylight-lake-411471.jpg') }}">clouds-daylight-lake-411471.jpg</option>
-			<option value="{{ asset($a.'clouds-dawn-dusk-46253.jpg') }}">clouds-dawn-dusk-46253.jpg</option>
-			<option value="{{ asset($a.'agriculture-asia-china-235648.jpg') }}">agriculture-asia-china-235648.jpg</option>
-			<option value="{{ asset($a.'asphalt-countryside-empty-105234.jpg') }}">asphalt-countryside-empty-105234.jpg</option>
-			<option value="{{ asset($a.'forest-landscape-mountain-range-129105.jpg') }}">forest-landscape-mountain-range-129105.jpg</option>
-			<option value="{{ asset($a.'background-beautiful-blossom-268533.jpg') }}">background-beautiful-blossom-268533.jpg</option>
-			<option value="{{ asset($a.'beach-boardwalk-boat-132037.jpg') }}">beach-boardwalk-boat-132037.jpg</option>
-			<option value="{{ asset($a.'adventure-calm-clouds-414171.jpg') }}">adventure-calm-clouds-414171.jpg</option>
-			<option value="{{ asset($a.'landscape-nature-ocean-36717.jpg') }}">landscape-nature-ocean-36717.jpg</option>
-			<option value="{{ asset($a.'agriculture-bloom-blossom-355312.jpg') }}">agriculture-bloom-blossom-355312.jpg</option>
-			<option value="{{ asset($a.'arctic-aurora-aurora-borealis-258112.jpg') }}">arctic-aurora-aurora-borealis-258112.jpg</option>
-			<option value="{{ asset($a.'clouds-horizon-landscape-35599.jpg') }}">clouds-horizon-landscape-35599.jpg</option>
-			<option value="{{ asset($a.'grass-lake-lake-saiful-muluk-127753.jpg') }}">grass-lake-lake-saiful-muluk-127753.jpg</option>
-			<option value="{{ asset($a.'agricultural-agriculture-cropland-247599.jpg') }}">agricultural-agriculture-cropland-247599.jpg</option>
-			<option value="{{ asset($a.'astronomy-cosmos-crater-lake-national-park-262669.jpg') }}">astronomy-cosmos-crater-lake-national-park-262669.jpg</option>
-			<option value="{{ asset($a.'forest-landscape-light-35600.jpg') }}">forest-landscape-light-35600.jpg</option>
-			<option value="{{ asset($a.'arch-bridge-clouds-814499.jpg') }}">arch-bridge-clouds-814499.jpg</option>
-			<option value="{{ asset($a.'beautiful-blur-bright-326055.jpg') }}">beautiful-blur-bright-326055.jpg</option>
-			<option value="{{ asset($a.'clouds-dawn-dusk-158489.jpg') }}">clouds-dawn-dusk-158489.jpg</option>
-			<option value="{{ asset($a.'background.jpeg') }}">background.jpeg</option>
-		</select>
-
-		<select name="" id="backPosition">
-			<option value="top">top</option>
-			<option value="center">center</option>
-			<option value="bottom">bottom</option>
-		</select>
-	</form>
+	@include('layouts.deleteTHIS.background')
 
 		<!-- Post -->
 		<article class="post">

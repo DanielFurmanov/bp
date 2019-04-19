@@ -21,6 +21,8 @@ Route::get('/contacts', 'Controller@contacts')->name('contacts');
 Route::get('/articles', 'Controller@articles')->name('articles');
 Route::get('/articles/{slug}', 'Controller@showArticle')->name('articles.view');
 
+Route::get('/interviews', 'Controller@interviews')->name('interviews');
+
 //Route::get('/interviews', 'Controller@interviews')->name('interviews');
 
 //Route::get('/reviews', 'Controller@reviews')->name('reviews');
@@ -51,10 +53,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::resource('meetings', 'MeetingController')->except('show');
     Route::resource('articles', 'ArticleController'); // todo except?
+    Route::resource('interviews', 'InterviewController')->except('show');
+
 });
 
+Route::resource('interviews', 'InterviewController')->only('show');
+
 Route::resource('reviews', 'ReviewController');
-Route::resource('interviews', 'InterviewController');
 
 // this one is not needed
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

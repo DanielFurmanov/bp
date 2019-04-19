@@ -8,21 +8,23 @@
 				/** @var App\Models\Article $article*/
 			@endphp
 
-			<article class="book">
+			<article class="entry">
 				<header>
-					<h3><a href="{{ route('articles.view', [$article->getSlug()]) }}">{{ $article->getTitle() }}</a></h3>
+					<h2><a href="{{ route('articles.view', [$article->getSlug()]) }}">{{ $article->getTitle() }}</a></h2>
 				</header>
 
 				<section>
-					<p>
-						{{ $article->getAnnotation() }}
-					</p>
+					<div>
+						{{ $article->getAnnotation() }}...
+					</div>
+
+					<ul class="actions" style="text-align: center">
+						<li><a href="{{ route('articles.view', [$article->getSlug()]) }}" class="button big">Читать</a></li>
+					</ul>
 				</section>
 
 
-				<ul class="actions" style="text-align: center">
-					<li><a href="{{ route('articles.view', [$article->getSlug()]) }}" class="button big">Читать</a></li>
-				</ul>
+
 			</article>
 		@endforeach
 	</div>

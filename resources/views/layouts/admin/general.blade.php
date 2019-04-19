@@ -9,7 +9,7 @@
 	<body>
 		@include('layouts.admin.partials.header')
 
-		<div class="container rounded border border-light mt-2 pt-3 pb-3">
+		<div id="wrapper" class="container rounded border border-light mt-2 pt-3 pb-3">
 			@yield('content')
 		</div>
 	</body>

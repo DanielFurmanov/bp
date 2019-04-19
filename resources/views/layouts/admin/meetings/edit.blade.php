@@ -1,54 +1,102 @@
 @extends('layouts.admin.general')
 
-<div class="post">
+
+@section('content')
+
+	@php
+		use App\Models\City;
+		use App\Models\Meeting;
+	/** @var Meeting $meeting */
+	/** @var City[] $cities */
+
+	@endphp
+
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{{ route('admin') }}">Управление блогом</a></li>
+			<li class="breadcrumb-item"><a href="{{ route('meetings.index') }}">Встречи</a></li>
+			<li class="breadcrumb-item active" aria-current="page">
+				@if($meeting->getId())
+					Редактирование встречи
+				@else
+					Создание новой встречи
+				@endif
+			</li>
+		</ol>
+	</nav>
+
 	<form action="{{ route('meetings.store') }}" method="POST">
 		@csrf
 
-		@php
-			use App\Models\City;
-			use App\Models\Meeting;
-		/** @var Meeting $meeting */
-		/** @var City[] $cities */
 
-		@endphp
 
-		<section>
-			Создание новой встречи
-		</section>
+		<h2>
+			@if($meeting->getId())
+				Редактирование встречи
+			@else
+				Создание новой встречи
+			@endif
+		</h2>
 
-		<label for="description">@lang('field.meetings.description')</label>
-		<input type="text" name="description" id="description" value="{{ $meeting->getDescription() }}">
+		@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 
-		<label for="description">@lang('field.city')</label>
-		<select name="city_id" id="city_id">
-			@foreach($cities as $city)
-				<option value="{{ $city->getId() }}"
-						@if($meeting->city && $meeting->city->getId() === $city->getId())selected @endif
-				>
-					{{ $city->getName() }}
-				</option>
-			@endforeach
-		</select>
+		<div class="form-group">
+			<label for="description">@lang('field.meetings.description')</label>
+			<input class="form-control" type="text" name="description" id="description" value="{{ $meeting->getDescription() }}">
+		</div>
 
-		<label for="description">@lang('field.address')</label>
-		<input type="text" name="address" id="address" value="{{ $meeting->getAddress() }}">
+		<div class="form-group">
+			<label for="city_id">@lang('field.meetings.city')</label>
+			<select class="form-control" name="city_id" id="city_id">
+				@foreach($cities as $city)
+					<option value="{{ $city->getId() }}"
+							@if($meeting->city && $meeting->city->getId() === $city->getId())selected @endif
+					>
+						{{ $city->getName() }}
+					</option>
+				@endforeach
+			</select>
+		</div>
 
-		<label for="date_start">@lang('field.date_start')</label>
-		<input type="text" name="date_start" id="date_start" value="{{ $meeting->getDateStart() }}">
+		<div class="form-group">
+			<label for="description">@lang('field.meetings.address')</label>
+			<input class="form-control" type="text" name="address" id="address" value="{{ $meeting->getAddress() }}">
+		</div>
 
-		<label for="time_start">@lang('field.time_start')</label>
-		<input type="text" name="time_start" id="time_start" value="{{ $meeting->getTimeStart() }}">
+		<div class="form-group">
+			<label for="date_start">@lang('field.meetings.date_start')</label>
+			<input class="form-control" type="text" name="date_start" id="date_start" value="{{ $meeting->getDateStart() }}">
+		</div>
 
-		<label for="date_end">@lang('field.date_end')</label>
-		<input type="text" name="date_end" id="date_end" value="{{ $meeting->getDateEnd() }}">
+		<div class="form-group">
+			<label for="time_start">@lang('field.meetings.time_start')</label>
+			<input class="form-control" type="text" name="time_start" id="time_start" value="{{ $meeting->getTimeStart() }}">
+		</div>
 
-		<label for="time_end">@lang('field.time_end')</label>
-		<input type="text" name="time_end" id="time_end" value="{{ $meeting->getTimeEnd() }}">
+		<div class="form-group">
+			<label for="date_end">@lang('field.meetings.date_end')</label>
+			<input class="form-control" type="text" name="date_end" id="date_end" value="{{ $meeting->getDateEnd() }}">
+		</div>
+
+		<div class="form-group">
+			<label for="time_end">@lang('field.meetings.time_end')</label>
+			<input class="form-control" type="text" name="time_end" id="time_end" value="{{ $meeting->getTimeEnd() }}">
+		</div>
 
 		{{--TODO FIGURE THAT ONE NECESSATy --}}
 		{{--<label for="active">@lang('field.active')</label>--}}
 		{{--<input type="text" name="active" id="active">--}}
 
-		<button>Create</button>
+		<button class="btn btn-success">Создать</button>
 	</form>
-</div>
+
+@endsection

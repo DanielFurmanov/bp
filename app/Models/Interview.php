@@ -16,7 +16,7 @@ namespace App\Models;
  */
 class Interview extends BaseModel {
 
-	public function getTitle(): string
+	public function getTitle(): ?string
 	{
 		return $this->title;
 	}
@@ -26,7 +26,7 @@ class Interview extends BaseModel {
 		$this->title = $title;
 	}
 
-	public function getSlug(): string
+	public function getSlug(): ?string
 	{
 		return $this->slug;
 	}
@@ -46,7 +46,7 @@ class Interview extends BaseModel {
 		$this->image = $image;
 	}
 
-	public function getFullText(): string
+	public function getFullText(): ?string
 	{
 		return $this->full_text;
 	}
@@ -56,7 +56,7 @@ class Interview extends BaseModel {
 		$this->full_text = $full_text;
 	}
 
-	public function getDescription(): string
+	public function getDescription(): ?string
 	{
 		return $this->description;
 	}

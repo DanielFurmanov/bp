@@ -19,6 +19,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Meeting extends BaseModel
 {
     /**
+     * @return int
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
      * @return string
      */
     public function getDescription(): ?string
