@@ -2,8 +2,10 @@
 
 @section('content')
 
-	@include('layouts.deleteTHIS.background')
 
+	@if (!isset($disable_background_selection))
+		@include('layouts.deleteTHIS.background')
+	@endif
 		<!-- Post -->
 		<article class="post">
 			<header>
@@ -52,9 +54,9 @@
 			<p style="text-align: center">
 			<h3>12 декабря В 18:00
 				В САНКТ-ПЕТЕРБУРГЕ</h3>
-			<div id="map" style="height: 100%; width: 100%; min-height: 200px">
+{{--			<div id="map" style="height: 100%; width: 100%; min-height: 200px">--}}
 
-			</div>
+{{--			</div>--}}
 			Лиговский пр., 10 (метро "Пл. Восстания"), гостиница "Октябрьская", 2-й этаж, Орловский конференц-зал.
 			состоится презентация семинара по естественному восстановлению зрения и запись на курсы С.Троицкой<br>
 			Все организационные подробности узнавайте<br>

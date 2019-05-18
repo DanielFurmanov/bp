@@ -97,34 +97,42 @@ class Controller extends BaseController
             'jumbo'      => "asfsd",
         ]);
     }
-    //
-    //	public function variant3() {
-    //		return view('layouts.home', [
-    //			'title' => 'variant3',
-    //			'fontfamily' => 'Vollkorn',
-    //		]);
-    //    }
-    //
-    //	public function variant4() {
-    //		return view('layouts.home', [
-    //			'title' => 'variant4',
-    //			'fontfamily' => 'Playfair Display SC',
-    //		]);
-    //    }
-    //
-    //	public function variant5() {
-    //		return view('layouts.home', [
-    //			'title' => 'Ubuntu Condensed',
-    //			'fontfamily' => 'Ubuntu Condensed',
-    //		]);
-    //    }
-    //
-    //	public function variant6() {
-    //		return view('layouts.home', [
-    //			'title' => 'Vollkorn',
-    //			'fontfamily' => 'Vollkorn',
-    //		]);
-    //    }
+
+    	public function variant3() {
+    		return view('layouts.home', [
+    			'title' => 'variant3',
+                'combined' => true,
+//    			'fontfamily' => 'Vollkorn',
+    		]);
+        }
+
+    	public function variant4() {
+    		return view('layouts.home', [
+    			'title' => 'variant4',
+                'combined' => true,
+                'black_background' => true,
+
+    		]);
+        }
+
+    	public function variant5() {
+            return view('layouts.home', [
+                'title' => 'variant5',
+                'combined' => true,
+                'gradient_background' => true,
+                'disable_background_selection' => true,
+            ]);
+        }
+
+    	public function variant6() {
+            return view('layouts.home', [
+                'title' => 'variant6',
+                'combined' => true,
+                'gradient_background' => true,
+                'disable_background_selection' => true,
+
+            ]);
+        }
     //
     //	public function variant7() {
     //		return view('layouts.home', [

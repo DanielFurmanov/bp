@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
@@ -12,12 +13,20 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function list()
     {
 		return view('layouts.reviews', [
 			'reviews' => Review::all(),
 			'title' => 'reviews',
 		]);
+    }
+
+    public function index()
+    {
+        return view('layouts.admin.reviews.list', [
+            'reviews' => Review::all(),
+            'title' => 'reviews',
+        ]);
     }
 
     /**
@@ -27,7 +36,11 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.admin.reviews.edit', [
+            'route' => route('reviews.store'),
+            'cities'  => City::all(),
+            'review' => new Review(),
+        ]);
     }
 
     /**
@@ -38,7 +51,19 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // todo
+        $review = new Review();
+        $review->setAuthor($request->get('author'));
+        $review->setAvatar($request->get('avatar'));
+        $review->setCity($request->get('city_id'));
+        $review->setComment($request->get('comment'));
+        $review->setDate($request->get('date'));
+        $review->setText($request->get('text'));
+
+
+        $review->saveOrFail();
+
+        return redirect()->route('interviews.index')->with('success', 'Created'); // todo proper
     }
 
     /**
@@ -69,7 +94,12 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('layouts.admin.reviews.edit', [
+            'formMethod' => 'PUT',
+            'route' => route('reviews.update', $id),
+            'review' => Review::query()->findOrFail($id),
+            'cities'  => City::all(),
+        ]);
     }
 
     /**
@@ -92,6 +122,9 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $review = Review::query()->findOrFail($id);
+        $review->delete();
+
+        return redirect()->route('interviews.index')->with('success', 'Удалено'); // todo proper
     }
 }

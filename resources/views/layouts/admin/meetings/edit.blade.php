@@ -3,13 +3,12 @@
 
 @section('content')
 
-	@php
-		use App\Models\City;
-		use App\Models\Meeting;
-	/** @var Meeting $meeting */
-	/** @var City[] $cities */
-
-	@endphp
+@php
+	use App\Models\City;
+	use App\Models\Meeting;
+/** @var Meeting $meeting */
+/** @var City[] $cities */
+@endphp
 
 
 	<nav aria-label="breadcrumb">
@@ -26,10 +25,13 @@
 		</ol>
 	</nav>
 
-	<form action="{{ route('meetings.store') }}" method="POST">
+	<form action="{{ $route }}" method="POST">
 		@csrf
 
 
+		@if(isset($formMethod))
+			{{ method_field($formMethod) }}
+		@endif
 
 		<h2>
 			@if($meeting->getId())
@@ -51,15 +53,24 @@
 
 		<div class="form-group">
 			<label for="description">@lang('field.meetings.description')</label>
-			<input class="form-control" type="text" name="description" id="description" value="{{ $meeting->getDescription() }}">
+			<input class="form-control"
+				   type="text"
+				   name="description"
+				   id="description"
+				   value="{{ $meeting->getDescription() ?? old('description') }}"
+			>
 		</div>
 
 		<div class="form-group">
+			{{ old('city_id') }}
 			<label for="city_id">@lang('field.meetings.city')</label>
 			<select class="form-control" name="city_id" id="city_id">
 				@foreach($cities as $city)
 					<option value="{{ $city->getId() }}"
-							@if($meeting->city && $meeting->city->getId() === $city->getId())selected @endif
+							@if(
+								($meeting->city && $meeting->city->getId() === $city->getId())
+								 || old('city_id') == $city->getId()
+							 )selected @endif
 					>
 						{{ $city->getName() }}
 					</option>
@@ -69,27 +80,37 @@
 
 		<div class="form-group">
 			<label for="description">@lang('field.meetings.address')</label>
-			<input class="form-control" type="text" name="address" id="address" value="{{ $meeting->getAddress() }}">
+			<input class="form-control" type="text" name="address" id="address"
+				   value="{{ $meeting->getAddress() ?? old('address')}}"
+			>
 		</div>
 
 		<div class="form-group">
 			<label for="date_start">@lang('field.meetings.date_start')</label>
-			<input class="form-control" type="text" name="date_start" id="date_start" value="{{ $meeting->getDateStart() }}">
+			<input class="form-control" type="text" name="date_start" id="date_start"
+				   value="{{ $meeting->getDateStart() ?? old('date_start')}}"
+			>
 		</div>
 
 		<div class="form-group">
 			<label for="time_start">@lang('field.meetings.time_start')</label>
-			<input class="form-control" type="text" name="time_start" id="time_start" value="{{ $meeting->getTimeStart() }}">
+			<input class="form-control" type="text" name="time_start" id="time_start"
+				   value="{{ $meeting->getTimeStart() ?? old('time_start')}}"
+			>
 		</div>
 
 		<div class="form-group">
 			<label for="date_end">@lang('field.meetings.date_end')</label>
-			<input class="form-control" type="text" name="date_end" id="date_end" value="{{ $meeting->getDateEnd() }}">
+			<input class="form-control" type="text" name="date_end" id="date_end"
+				   value="{{ $meeting->getDateEnd() ?? old('date_end')}}"
+			>
 		</div>
 
 		<div class="form-group">
 			<label for="time_end">@lang('field.meetings.time_end')</label>
-			<input class="form-control" type="text" name="time_end" id="time_end" value="{{ $meeting->getTimeEnd() }}">
+			<input class="form-control" type="text" name="time_end" id="time_end"
+				   value="{{ $meeting->getTimeEnd() ?? old('time_end')}}"
+			>
 		</div>
 
 		{{--TODO FIGURE THAT ONE NECESSATy --}}

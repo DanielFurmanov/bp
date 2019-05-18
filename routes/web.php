@@ -25,7 +25,7 @@ Route::get('/interviews', 'Controller@interviews')->name('interviews');
 
 //Route::get('/interviews', 'Controller@interviews')->name('interviews');
 
-//Route::get('/reviews', 'Controller@reviews')->name('reviews');
+Route::get('/reviews', 'ReviewController@list')->name('reviews');
 
 for ($i=1; $i <= 8; $i++) {
 	Route::get('/variant'.$i, 'Controller@variant'.$i);
@@ -54,12 +54,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('meetings', 'MeetingController')->except('show');
     Route::resource('articles', 'ArticleController'); // todo except?
     Route::resource('interviews', 'InterviewController')->except('show');
+    Route::resource('reviews', 'ReviewController')->except('show');
 
 });
 
 Route::resource('interviews', 'InterviewController')->only('show');
 
-Route::resource('reviews', 'ReviewController');
+Route::resource('reviews', 'ReviewController')->only('show');
 
 // this one is not needed
 //Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

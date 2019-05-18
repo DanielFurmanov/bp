@@ -92,8 +92,15 @@ class Review extends BaseModel {
 	/**
 	 * @return string
 	 */
-	public function getAvatar(): string {
+	public function getAvatarImageSource(): string {
 		return $this->getAvatars()[$this->avatar];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAvatar(): ?string {
+		return $this->avatar;
 	}
 
 	public function setAvatar(int $avatarKey) {

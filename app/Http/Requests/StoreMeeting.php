@@ -29,10 +29,20 @@ class StoreMeeting extends FormRequest
             'description' => 'required',
             'city_id' => 'required|exists:'.City::getTableName().',id',
             'address' => 'required',
-            'date_start' => 'required',
-            'time_start' => 'filled',
-            'date_end' => 'required|after_or_equal:date_start',
-            'time_end' => 'filled',
+            'date_start' => 'required|date|after:today',
+            'time_start' => 'nullable|date_format:H:i',
+            'date_end' => 'required|date|after_or_equal:date_start',
+            'time_end' => 'nullable|date_format:H:i',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'date_start' => 'Дата начала',
+            'time_start' => 'Время начала',
+            'date_end' => 'Дата окончания',
+            'time_end' => 'Время окончания',
         ];
     }
 }
